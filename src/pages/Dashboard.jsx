@@ -7,6 +7,7 @@ import BillList from "../components/Billlist";
 
 
 function Dashboard(){
+  const API = import.meta.env.VITE_API_URL;
  const [sidebarOpen, setSidebarOpen] = useState(true);
   const [payments, setPayments] = useState([]);
 
@@ -18,7 +19,7 @@ function Dashboard(){
 
       try {
        
-        const res = await fetch("http://localhost:5000/api/payments", {
+        const res = await fetch(`${API}/api/payments`, {
           headers: {
             "Content-Type": "application/json", // Add this
             "Authorization": `Bearer ${token}`,

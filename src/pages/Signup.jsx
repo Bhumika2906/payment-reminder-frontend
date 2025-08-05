@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import {} from 'lucide-react';
 
 function Signup(){
+  const API = import.meta.env.VITE_API_URL;
  const [step , setStep] = useState(1); //
  const [formData , setFormData ] = useState({
    name: "",
@@ -23,7 +24,7 @@ const handleChange = (e) => {
 const handleSendOtp = async (e) => {
   e.preventDefault();
   try {
-    const response = await fetch("http://localhost:5000/api/auth/send-otp", {
+    const response = await fetch(`${API}/api/auth/send-otp`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -52,7 +53,7 @@ const handleSendOtp = async (e) => {
 const handleVerifyOtp = async (e) => {
   e.preventDefault();
   try {
-    const response = await fetch("http://localhost:5000/api/auth/verify-otp", {
+    const response = await fetch(`${API}/api/auth/verify-otp`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 function login(){
 
+const API = import.meta.env.VITE_API_URL;
 const [email , setEmail] = useState("");
 const [otpSent , setOtpSent] = useState(false);
 const [otp , setOtp] = useState("");
@@ -13,7 +14,7 @@ const navigate = useNavigate();
 const handleSendOtp = async (e) => {
    e.preventDefault();
    try {
-    const res = await fetch("http://localhost:5000/api/auth/send-otp" ,{
+    const res = await fetch(`${API}/api/auth/send-otp` ,{
        method :"POST" ,
        headers: { "Content-Type": "application/json" },
        body :JSON.stringify({email}) , 
@@ -36,7 +37,7 @@ const handleSendOtp = async (e) => {
 const handleVerifyOtp = async(e) => {
     e.preventDefault();
     try {
-        const res = await fetch("http://localhost:5000/api/auth/verify-otp",{
+        const res = await fetch(`${API}/api/auth/verify-otp`,{
             method :"POST" ,
             headers: { "Content-Type": "application/json"},
             body: JSON.stringify({email , otp}),
