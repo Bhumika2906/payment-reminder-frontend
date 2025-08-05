@@ -68,6 +68,9 @@ const handleVerifyOtp = async (e) => {
     if (response.ok) {
       console.log("✅ OTP verified. JWT Token:", data.token);
       alert("Signup successful!");
+      // after successful signup/login
+     localStorage.setItem("userName", response.name);
+
       // optionally save token in localStorage here
     } else {
       alert("Invalid OTP");

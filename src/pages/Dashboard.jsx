@@ -10,6 +10,7 @@ function Dashboard(){
   const API = import.meta.env.VITE_API_URL;
  const [sidebarOpen, setSidebarOpen] = useState(true);
   const [payments, setPayments] = useState([]);
+  const [userName, setUserName] = useState("");
 
   useEffect(() => {
     const fetchPayments = async() => {
@@ -40,6 +41,11 @@ function Dashboard(){
       }
     };
 
+    const storedName = localStorage.getItem("userName");
+    if (storedName) {
+    setUserName(storedName);
+  }
+
     fetchPayments();
   }, []);
 
@@ -66,7 +72,7 @@ return(
 
 
 <div className="flex flex-col">   
- <div className="text-2xl font-bold ">Hello Bhumi,👋</div>
+ <div className="text-2xl font-bold ">Hello {userName},👋</div>
  <div className="text-sm">You've got some upcoming bills</div>   
 </div>  
 </div>        
