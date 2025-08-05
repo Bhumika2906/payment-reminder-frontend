@@ -52,7 +52,7 @@ useEffect(() => {
       if (!token) return;
 
       try {
-        const res = await fetch(`http://localhost:5000/api/payments`, {
+        const res = await fetch(`${API}/api/payments`, {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
