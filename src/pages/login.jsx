@@ -31,8 +31,6 @@ const handleSendOtp = async (e) => {
        alert("Failed to send otp");
     }
 };
-   
-
 
 const handleVerifyOtp = async(e) => {
     e.preventDefault();

@@ -28,7 +28,7 @@ function Dashboard(){
         });
 
         const data = await res.json();
-        console.log("Dashboard - Raw data:", data); // Debug
+         
         
         if (res.ok) {
           setPayments(data);
@@ -72,7 +72,7 @@ return(
 
 
 <div className="flex flex-col">   
- <div className="text-2xl font-bold ">Hello {userName},👋</div>
+ <div className="text-2xl font-bold ">Hello 👋</div>
  <div className="text-sm">You've got some upcoming bills</div>   
 </div>  
 </div>        
