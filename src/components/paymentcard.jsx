@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { differenceInCalendarDays, format } from "date-fns";
 function paymentcard({ payment , removeCard}){
 
+  const API = import.meta.env.VITE_API_URL;
   const [isFlipped, setIsFlipped] = useState(false);
   const [status , setStatus ] = useState(payment.status);
 
@@ -25,7 +26,7 @@ daysLeft === 0
 
     try {
       const token = localStorage.getItem("token");
-      await fetch(`http://localhost:5000/api/payments/${payment._id}`, {
+      await fetch(`${API}/api/payments/${payment._id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

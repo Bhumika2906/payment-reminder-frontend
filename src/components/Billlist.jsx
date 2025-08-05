@@ -7,6 +7,8 @@ import Sidebar from "./Sidebar";
 import { jwtDecode } from "jwt-decode";
 
 function BillList({showSidebar = true }){
+
+const API = import.meta.env.VITE_API_URL;  
 const [sidebarOpen , setSidebarOpen ] = useState(true);
 const [payments , setPayments ] = useState([]);
 const [deletingId, setDeletingId] = useState(null);
@@ -20,7 +22,7 @@ const [deletingId, setDeletingId] = useState(null);
 
   try {
     const token = localStorage.getItem("token");
-    const response = await fetch(`http://localhost:5000/api/payments/${paymentId}`, {
+    const response = await fetch(`${API}/api/payments/${paymentId}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,

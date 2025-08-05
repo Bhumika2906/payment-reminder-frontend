@@ -5,6 +5,7 @@ import {jwtDecode} from "jwt-decode";
 
 function Reminderform() {
     
+  const API = import.meta.env.VITE_API_URL;
   const [sidebarOpen , setSidebarOpen ] = useState(true);
   const [formData, setFormData] = useState({
     userId: "",
@@ -45,7 +46,7 @@ function Reminderform() {
 
 
     try {
-      const res = await fetch ("http://localhost:5000/api/payments",{
+      const res = await fetch (`${API}/api/payments`,{
         method : "POST",
         headers:{
           "Content-Type": "application/json",
